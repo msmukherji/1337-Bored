@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
       get 'leaderboard'             => 'games#show'
       post 'leaderboard'            => 'games#add'
-      post 'leaderboard/sort'       => 'games#sort'
+      post 'leaderboard/:sort'       => 'games#sort'
     end
   end
 
