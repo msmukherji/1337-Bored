@@ -6,4 +6,8 @@ class User < ActiveRecord::Base
 
   has_many :player_games
   has_many :games, through: :player_games
+
+  def games_won
+    self.games.where(winner: self.id)
+  end
 end
