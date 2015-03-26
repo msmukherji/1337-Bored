@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :game do
-    type "splendor"
+    game_type {["splendor", "battleship", "monopoly", "poker"].sample}
     players "john"
   end
 
