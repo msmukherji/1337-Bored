@@ -4,6 +4,7 @@ module V1
     def show
       @games = Game.all
       @users = User.all
+      @scores = PlayerGame.all
     end
 
     def add

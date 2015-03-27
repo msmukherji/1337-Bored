@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root 'application#home'
 
   resource :profile, only: [:edit, :update] do
-    resources :tokens, only: [:create, :destroy]
+    #resources :tokens, only: [:create, :destroy]
   end
 
   scope :api do
