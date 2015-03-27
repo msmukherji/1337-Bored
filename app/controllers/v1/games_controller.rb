@@ -8,13 +8,13 @@ module V1
     end
 
     def add
-      game_params = params[:game] # params need to include scores
+      game_params = params[:game]
       Game.create_game(game_params[:game_type], game_params[:players], 
         game_params[:winner], game_params[:loser])
       PlayerGame.populate_join(game_params)
     end
 
-    private
+    # private
 
     def sort
       if Game.column_names.include?(params[:sort])
@@ -25,12 +25,15 @@ module V1
       render :show
     end
 
-    def filter_type
-      @games = Game.filter_type(params[:game])
+    def gametype
+      binding.pry
+      @games = Game.filter_type(params[:game_type])
+      render :show
     end
 
     def filter_players
       @games = Game.filter_players(params[:player])
+      render :show
     end
 
   end

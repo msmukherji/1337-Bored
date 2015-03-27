@@ -13,8 +13,9 @@ class Game < ActiveRecord::Base
     Game.order(param)
   end
 
-  def filter_type(param)
-    Game.where(game_type: param[:game_type])
+  def self.filter_type(param)
+    Game.where(game_type: param)
+    binding.pry
   end
 
   def filter_players(param)

@@ -17,7 +17,7 @@ Rails.application.routes.draw do
       get 'leaderboard'                   => 'games#show'
       post 'leaderboard'                  => 'games#add'
       get 'leaderboard/:sort'             => 'games#sort'
-      post 'leaderboard/gametype'         => 'games#filter_type'
+      post 'leaderboard/gametype'         => 'games#gametype'
       post 'leaderboard/players'          => 'games#filter_players'
     end
   end
