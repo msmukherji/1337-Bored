@@ -8,4 +8,6 @@ end
 json.users @users do |user|
 	json.name user.email
 	json.user_id user.id
+	json.wins user.games_won.count
+	json.losses user.games.count - user.games_won.count
 end
