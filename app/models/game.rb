@@ -10,6 +10,15 @@ class Game < ActiveRecord::Base
   end
 
   def sort_games(param)
-    Game.where(game_type: param)
+    Game.order(param)
   end
+
+  def filter_type(param)
+    Game.where(game_type: param[:game_type])
+  end
+
+  def filter_players(param)
+    User.where(id: param[:id]).games
+  end
+
 end
