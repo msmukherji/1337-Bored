@@ -4,3 +4,4 @@ json.games @games do |game|
 	json.losers game["loser"]
 	json.winner game["winner"]
 end
+
