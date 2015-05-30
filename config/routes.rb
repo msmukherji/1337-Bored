@@ -9,13 +9,22 @@ Rails.application.routes.draw do
 
   scope :api do
     namespace :v1 do
+      post 'users/new'              => 'users#create'
+
       get 'profile/:user_id'        => 'profiles#show'
-      get 'profile/:user_id/edit'   => 'profiles#edit'
       post 'profile/:user_id/edit'  => 'profiles#update'
 
-      get 'leaderboard'             => 'games#show'
-      post 'leaderboard'            => 'games#add'
-      post 'leaderboard/:sort'      => 'games#sort'
+# <<<<<<< HEAD
+#       get 'leaderboard'             => 'games#show'
+#       post 'leaderboard'            => 'games#add'
+#       post 'leaderboard/:sort'      => 'games#sort'
+# =======
+      get 'leaderboard'                   => 'games#show'
+      post 'leaderboard'                  => 'games#add'
+      get 'leaderboard/:sort'             => 'games#sort'
+      post 'leaderboard/gametype'         => 'games#filter_type'
+      post 'leaderboard/players'          => 'games#filter_players'
+# >>>>>>> 0d6bb4fe7ed64b2255a0d102c1563c42e083a8c7
     end
   end
 

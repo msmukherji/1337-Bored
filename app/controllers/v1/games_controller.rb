@@ -3,6 +3,7 @@ module V1
     
     def show
       @games = Game.all
+      @users = User.all
     end
 
     def add
@@ -15,8 +16,21 @@ module V1
     private
 
     def sort
-      @games = Game.sort_games(params[:sort])
+      if Game.column_names.include?(params[:sort])
+        @games = Game.sort_games(params[:sort])
+      else
+        render json: {error: "invalid sorting parameter"}, status: 404
+      end
       render :show
     end
+
+    def filter_type
+      @games = Game.filter_type(params[:game])
+    end
+
+    def filter_players
+      @games = Game.filter_players(params[:player])
+    end
+
   end
 end
